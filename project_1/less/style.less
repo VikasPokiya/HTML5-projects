@@ -158,6 +158,7 @@ a {
 
             &:hover {
                 background: #888888;
+                color: black;
             }
         }
     }
@@ -242,14 +243,81 @@ a {
     }
 
     .footer {
-        padding: 50px 10px;
-        background: #dadada;
+        padding: 65px 10px;
+        background: #f1f1f1;
         display: inline-block;
+        width: 100%;
+
+        h4 {
+            display: block;
+            font-size: 19px;
+            margin: 12px 0px;
+        }
+
+        p {
+            font-size: 13px;
+            margin: 12px 0px;
+        }
+
+        .col-2 {
+            p {
+                text-decoration: underline;
+                cursor: pointer;
+            }
+        }
+        
+        .col-1, .col-2 {
+            text-align: center;
+
+            h4 {
+                text-align: center;
+            }
+        }
 
         .f-col {
             width: 33.3333%;
             float: left;
             padding: 0px 8px;
+        }
+
+        form {
+            input {
+                display: block;
+                width: 100%;
+                outline: none;
+                border: none;
+                box-shadow: 0px 0px 1px #00000080;
+                padding: 8px 10px;
+                margin: 15px 0px;
+            }
+
+            button {
+                background: #000000;
+                outline: none;
+                border: none;
+                color: #ffffff;
+                padding: 10px 0px;
+                font-size: 13px;
+                display: block;
+                width: 100%;
+    
+                &:hover {
+                    background: #888888;
+                    color: black;
+                }
+            }
+        }
+    }
+
+    .footer-bottom {
+        text-align: center;
+        background: #000;
+        padding: 30px 0px;
+        color: #fff;
+
+        a {
+            color: #fff;
+            text-decoration: underline;
         }
     }
 }
