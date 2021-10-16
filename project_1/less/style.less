@@ -24,6 +24,18 @@ a {
     text-decoration: none;
 }
 
+.brand-logo {
+    font-family: "Montserrat", sans-serif;
+    cursor: pointer;
+
+    span {
+        font-size: 25px;
+        font-weight: 800;
+        display: block;
+        padding: 25px 20px;
+    }
+}
+
 .sidebar-navigation {
     width: 250px;
     height: 100vh;
@@ -32,16 +44,8 @@ a {
     background: #ffffff;
     z-index: 3;
     font-family: "Montserrat", sans-serif;
-
-    .brand-logo {
-        span {
-            font-size: 25px;
-            font-weight: 800;
-            width: 100%;
-            display: block;
-            padding: 25px 20px;
-        }
-    }
+    transform: translatex(0px);
+    transition: all 0.5s;
 
     .navigation {
         padding-top: 80px;
@@ -77,6 +81,7 @@ a {
         .submenu {
             padding: 0px 20px;
             margin: 10px 0px;
+            display: none;
         }
     }
 
@@ -93,9 +98,20 @@ a {
     }
 }
 
+.overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: #000000b0;
+    z-index: 9999;
+}
+
 .content-wrapper {
     margin-left: 250px;
-    transition: margin-left .4s;
+    transition: margin .4s;
     font-family: "Montserrat", sans-serif;
 
     .content-header {
@@ -164,6 +180,8 @@ a {
     }
 
     .product-items {
+        display: inline-block;
+
         .sort-product.total {
             padding: 15px 20px;
             color: #808080;
@@ -171,11 +189,12 @@ a {
         }
 
         .product-item {
-            width: 24.6%;
+            width: 25%;
             display: inline-block;
             margin-bottom: 5px;
             transition: all .3s;
             padding: 0px 20px;
+            float: left;
         }
 
         a.product-image {
@@ -265,8 +284,9 @@ a {
                 cursor: pointer;
             }
         }
-        
-        .col-1, .col-2 {
+
+        .col-1,
+        .col-2 {
             text-align: center;
 
             h4 {
@@ -300,7 +320,7 @@ a {
                 font-size: 13px;
                 display: block;
                 width: 100%;
-    
+
                 &:hover {
                     background: #888888;
                     color: black;
@@ -316,8 +336,168 @@ a {
         color: #fff;
 
         a {
-            color: #fff;
+            color: #ffffff;
             text-decoration: underline;
+        }
+    }
+}
+
+.media-tab-header {
+    background: #000;
+    transform: translateY(-100%);
+    animation: toggle-header 0.4s;
+    display: none;
+    color: #fff;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    z-index: 999;
+
+    .brand-logo {
+        display: inline-block;
+
+        span {
+            display: inline-block;
+        }
+    }
+
+    .menu {
+        font-size: 25px;
+        display: block;
+        padding: 25px 20px;
+        color: #fff;
+        margin-left: auto;
+        cursor: pointer;
+
+        &:hover {
+            background: #ccc;
+            color: #000;
+        }
+    }
+}
+
+@keyframes toggle-header {
+    0% {
+        transform: translateY(0%);
+    }
+
+    100% {
+        display: none;
+    }
+}
+
+@media (max-width: 991px) {
+    .sidebar-navigation {
+        transform: translateX(-100%);
+        top: 0px;
+        z-index: 99999;
+    }
+
+    .content-wrapper {
+        margin-left: 0px;
+        margin-top: 80.4px;
+
+        .product-items {
+            .product-item {
+                width: 50%;
+            }
+        }
+    }
+
+    .media-tab-header {
+        display: flex;
+        transform: translateY(0%);
+        align-items: center;
+    }
+
+    @keyframes toggle-header {
+        0% {
+            transform: translateY(-100%);
+        }
+
+        100% {
+            display: flex;
+        }
+    }
+}
+
+@media (min-width: 992px) {
+    body {
+        overflow: unset !important;
+    }
+    
+    .sidebar-navigation {
+        transform: translateX(0%) !important;
+    }
+    .overlay {
+        display: none !important;
+    }
+}
+
+@media (max-width: 576px) {
+    .content-wrapper {
+        .cs-banner {
+            .banner-content {
+                h1 {
+                    font-size: 40px;
+                }
+
+                p {
+                    font-size: 21px;
+                }
+
+                button {
+                    padding: 10px 29px;
+                }
+            }
+        }
+
+        .footer {
+            .f-col {
+                width: 50%;
+
+                &:last-child {
+                    text-align: center;
+                    display: inline-block;
+                    float: none;
+                    margin-top: 39px;
+                    transform: translateX(-50%);
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 420px) {
+    .content-wrapper {
+        .cs-banner {
+            .banner-content {
+                h1 {
+                    font-size: 34px;
+                }
+
+                p {
+                    display: none;
+                }
+
+                button {
+                    padding: 7px 20px;
+                    font-size: 16px;
+                }
+            }
+        }
+
+        .footer {
+            .f-col {
+                width: 100%;
+                margin-top: 20px;
+
+                &:last-child {
+                    transform: none;
+                    margin-top: 20px;
+                }
+            }
         }
     }
 }
